@@ -40,7 +40,7 @@ jobs:
 
       - name: Check if version already exists
         run: |
-          ! mvn --batch-mode dependency:get -DskipTests -Dmaven.main.skip -Dartifact=io.moost.rp:${{ github.event.repository.name }}:${{ steps.stepGetVersion.outputs.version }}
+          ! mvn --batch-mode dependency:get -DskipTests -Dmaven.main.skip -Dartifact=io.moost.kafka:${{ github.event.repository.name }}:${{ steps.stepGetVersion.outputs.version }}
 
       - name: Build with Maven
         env:
@@ -64,4 +64,4 @@ jobs:
         uses: actions/delete-package-versions@v3
         with:
           min-versions-to-keep: 5
-          package-name: "io.moost.rp.${{ github.event.repository.name }}"
+          package-name: "io.moost.kafka.${{ github.event.repository.name }}"
