@@ -5,8 +5,8 @@ import com.mongodb.kafka.connect.sink.converter.SinkDocument;
 import com.mongodb.kafka.connect.sink.processor.PostProcessor;
 import org.apache.kafka.connect.sink.SinkRecord;
 
+
 public class JsonStringIdToMongoDbObjectId extends PostProcessor {
- 
     public JsonStringIdToMongoDbObjectId(MongoSinkTopicConfig config) {
         super(config);
     }
@@ -14,7 +14,7 @@ public class JsonStringIdToMongoDbObjectId extends PostProcessor {
     @Override
     public void process(SinkDocument doc, SinkRecord orig) {
         doc.getValueDoc().ifPresent(vd ->
-                vd.append("_id", doc.getValueDoc().get().get("id").asObjectId())
+                vd.append("_id", vd.getString("id").asObjectId())
         );
     }
 }

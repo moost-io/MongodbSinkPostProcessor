@@ -6,7 +6,7 @@
 
     <groupId>io.moost.kafka</groupId>
     <artifactId>mongodb-sink-postprocessor</artifactId>
-    <version>1.1.0</version>
+    <version>1.4.0</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -44,5 +44,30 @@
             <url>https://maven.pkg.github.com/moost-io/MongodbSinkPostProcessor</url>
         </repository>
     </distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>io.moost.kafka.JsonStringIdToMongoDbObjectId</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
