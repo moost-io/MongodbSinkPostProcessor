@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.moost.kafka</groupId>
-    <artifactId>mongodb-sink-postprocessor</artifactId>
-    <version>1.8.0</version>
+    <artifactId>kafka-pp-jsonidtomongodbid</artifactId>
+    <version>1.0.0</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -41,7 +41,7 @@
         <repository>
             <id>github</id>
             <name>Publish to Github Packages</name>
-            <url>https://maven.pkg.github.com/moost-io/MongodbSinkPostProcessor</url>
+            <url>https://maven.pkg.github.com/moost-io/kafka-pp-jsonidtomongodbid</url>
         </repository>
     </distributionManagement>
 
